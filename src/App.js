@@ -20,6 +20,31 @@ const App = () => {
         className="form-control"
         onChange={handleInput}
       />
+      {JSONDATA.filter((name) => {
+        if (searchData == "") return name;
+        if (
+          name.first_name
+            .toLocaleLowerCase()
+            .includes(searchData.toLocaleLowerCase())
+        ) {
+          return name;
+        }
+      }).map((val, key) => {
+        {
+          return (
+            <div
+              style={{ margin: 30, lineHeight: 0.5 }}
+              className="text-left"
+              key={key}
+            >
+              <p style={{ cursor: "pointer", color: "#222" }}>
+                {val.first_name}
+              </p>
+            </div>
+          );
+        }
+      })}
+      ;
     </div>
   );
 };
